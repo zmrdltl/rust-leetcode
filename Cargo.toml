@@ -1,0 +1,8 @@
+[package]
+name = "rust-leetcode"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rust_leetcode"
+path = "src/lib.rs"
