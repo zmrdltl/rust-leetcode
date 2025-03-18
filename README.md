@@ -1,38 +1,39 @@
 # Software Name
+
 Rust-based Leetcode solutions and code review repository.
 
 ## Programming Exercise Process
 
-1. Create a personal repository
+* Create a personal repository
 
-- Each participant should create their own repository.
+  * Each participant should create their own repository.
 
-- The `README.md` file can be customized freely.
+  * The `README.md` file can be customized freely.
 
-- A `CHANGELOG.md` file is not required.
+  * A `CHANGELOG.md` file is not required.
 
-2. Issue and Pull Request Workflow
+* Issue and Pull Request Workflow
 
-- Create an issue for each problem.
+  * Create an issue for each problem.
 
-- Include the problem link in the issue description.
+  * Include the problem link in the issue description.
 
-- Submit a Pull Request (PR) linked to the issue.
+  * Submit a Pull Request (PR) linked to the issue.
 
-- Reviewers approve the PR before merging.
+  * Reviewers approve the PR before merging.
 
-- The author of the PR is responsible for merging after approval.
+  * The author of the PR is responsible for merging after approval.
 
-3. Handling Code Revisions
+* Handling Code Revisions
 
-- If a review results in changes that should also be applied to previously
-merged code, create a separate issue and proceed accordingly.
+  * If a review results in changes that should also be applied to previously
+   merged code, create a separate issue and proceed accordingly.
 
-4. Library Restrictions
+* Library Restrictions
 
-- Do not use external libraries; only the Rust standard library is allowed.
+  * Do not use external libraries; only the Rust standard library is allowed.
 
-5. Flexible Problem Scope
+* Flexible Problem Scope
 
 If a problem's requirements are ambiguous, decide on an approach individually.
 
@@ -40,37 +41,37 @@ The goal is **familiarity with Rust**, not just solving the problem.
 
 ## Coding Guidelines
 
-- Maximize the use of Option and Result
+* Maximize the use of Option and Result
 
-  - Utilize Rust's built-in error handling mechanisms instead of relying on
+  * Utilize Rust's built-in error handling mechanisms instead of relying on
     panics.
 
-- Prioritize exception handling
+* Prioritize exception handling
 
-  - Properly handle errors to ensure robust and safe code execution.
+  * Properly handle errors to ensure robust and safe code execution.
 
-- Leverage standard Rust traits (std::trait)
+* Leverage standard Rust traits (std::trait)
 
-  - Make use of Rust's standard traits to write idiomatic and reusable code.
+  * Make use of Rust's standard traits to write idiomatic and reusable code.
 
-- Use iterators instead of for loops
+* Use iterators instead of for loops
 
-  - Prefer .iter(), .map(), .filter(), and other iterator methods to improve
+  * Prefer .iter(), .map(), .filter(), and other iterator methods to improve
     code clarity and efficiency.
 
-- Avoid panic!, unwrap, and expect
+* Avoid panic!, unwrap, and expect
 
-  - Do not use unsafe error handling practices; refer to the documentation for
+  * Do not use unsafe error handling practices; refer to the documentation for
     alternatives.
 
-- Minimize cloning (clone()) and mutable state (mut)
+* Minimize cloning (clone()) and mutable state (mut)
 
-  - Reduce unnecessary heap allocations and mutable references to improve
+  * Reduce unnecessary heap allocations and mutable references to improve
     performance and maintainability.
 
-- Optimize memory allocation
+* Optimize memory allocation
 
-  - Use references (&, &mut) whenever possible instead of cloning or heap
+  * Use references (&, &mut) whenever possible instead of cloning or heap
     allocations to keep memory usage minimal.
 
 ## Why Naming & Branching Rules Are Not Applied
@@ -78,15 +79,15 @@ The goal is **familiarity with Rust**, not just solving the problem.
 This repository is a personal coding exercise rather than an enterprise project,
 so strict naming and branching/versioning rules are unnecessary.
 
-- No multiple project branches: We don’t maintain custom versions for different
+* No multiple project branches: We don't maintain custom versions for different
   users.
 
-- No strict versioning: Semantic versioning (x.y.z+branch.version) is not
+* No strict versioning: Semantic versioning (x.y.z+branch.version) is not
   required since this is not a deployable product.
 
-- Simplified workflow: We follow a feature branch → PR → merge to main process.
+* Simplified workflow: We follow a feature branch → PR → merge to main process.
 
-- Branch name parsing: We use a simple convention like
+* Branch name parsing: We use a simple convention like
   {your-name}/tis/{my-branch-name} for individual work branches.
 
 However, commit message guidelines are enforced for clarity and consistency.
