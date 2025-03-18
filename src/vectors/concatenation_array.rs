@@ -21,7 +21,7 @@
 /// # Examples
 ///
 /// ```
-/// use rust_leetcode::arrays::concatenate_array;
+/// use rust_leetcode::vectors::concatenate_array;
 ///
 /// let nums = vec![1, 2, 1];
 /// assert_eq!(concatenate_array(&nums), Ok(vec![1, 2, 1, 1, 2, 1]));
