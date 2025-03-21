@@ -18,6 +18,13 @@
 /// - The input slice is empty
 /// - The input slice is not a valid array
 ///
+/// # Panics
+///
+/// This function uses `expect()` internally, but it should never panic in practice because:
+/// - The function checks if `accounts` is empty before calling `max()`
+/// - The `max()` function only returns `None` for empty iterators
+/// - Since `accounts` is verified to be non-empty, `max()` will always return `Some`
+///
 /// # Examples
 ///
 /// ```
@@ -35,11 +42,11 @@ pub fn richest_customer_wealth(accounts: &[Vec<i32>]) -> Result<i32, &'static st
         return Err("Input array cannot contain empty arrays");
     }
 
-    accounts
+    Ok(accounts
         .iter()
         .map(|account| account.iter().sum())
         .max()
-        .ok_or("Failed to calculate maximum wealth")
+        .expect("max() always returns Some because accounts is already verified to be non-empty"))
 }
 
 #[cfg(test)]
