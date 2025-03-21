@@ -27,13 +27,7 @@
 #[must_use]
 pub fn build_array_from_permutation(nums: &[usize]) -> Vec<i32> {
     nums.iter()
-        .filter_map(|&num| {
-            if num < nums.len() {
-                nums.get(num).and_then(|&val| i32::try_from(val).ok())
-            } else {
-                None
-            }
-        })
+        .filter_map(|&num| nums.get(num).and_then(|&val| i32::try_from(val).ok()))
         .collect()
 }
 
