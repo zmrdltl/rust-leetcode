@@ -7,3 +7,6 @@ pub use minimum_sum_of_four_digit_number_after_splitting_digits::*;
 
 mod number_of_good_pairs;
 pub use number_of_good_pairs::*;
+
+mod kids_with_the_greatest_number_of_candies;
+pub use kids_with_the_greatest_number_of_candies::*;
