@@ -26,46 +26,19 @@
 /// let nums = vec![8, 1, 2, 2, 3];
 /// assert_eq!(smaller_numbers_than_current(&nums), Ok(vec![4, 0, 1, 1, 3]));
 /// ```
-pub fn smaller_numbers_than_current(nums: &[i32]) -> Result<Vec<i32>, &'static str> {
+pub fn smaller_numbers_than_current(nums: &[i32]) -> Result<Vec<usize>, &'static str> {
     if nums.len() < 2 || nums.len() > 500 {
         return Err("nums.length is not between 2 and 500");
     }
 
-    // Validate all elements are within the expected range
     if nums.iter().any(|&num| !(0..=100).contains(&num)) {
         return Err("nums elements are not between 0 and 100");
     }
 
-    let frequency: [i32; 101] = nums.iter().fold([0; 101], |mut acc, &num| {
-        if let Ok(idx) = usize::try_from(num) {
-            if idx <= 100 {
-                acc[idx] += 1;
-            }
-        }
-        acc
-    });
-
-    let counts: [i32; 101] = (0..101).fold([0; 101], |mut acc, i| {
-        if i > 0 {
-            acc[i] = acc[i - 1] + frequency[i - 1];
-        }
-        acc
-    });
-
-    // Map each number to its smaller count
-    nums.iter()
-        .map(|&num| {
-            usize::try_from(num)
-                .map_err(|_| "Invalid number conversion")
-                .and_then(|idx| {
-                    if idx <= 100 {
-                        Ok(counts[idx])
-                    } else {
-                        Err("Number out of valid range")
-                    }
-                })
-        })
-        .collect()
+    Ok(nums
+        .iter()
+        .map(|&current| nums.iter().filter(|&&num| num < current).count())
+        .collect())
 }
 
 #[cfg(test)]
