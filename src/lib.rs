@@ -1,6 +1,8 @@
+pub mod encoding_decoding;
 pub mod numbers;
 pub mod vectors;
 
+pub use encoding_decoding::*;
 pub use numbers::*;
 pub use vectors::*;
 
