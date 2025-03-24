@@ -10,3 +10,6 @@ pub use number_of_good_pairs::*;
 
 mod kids_with_the_greatest_number_of_candies;
 pub use kids_with_the_greatest_number_of_candies::*;
+
+mod subtract_the_product_and_sum_of_digits_of_an_integer;
+pub use subtract_the_product_and_sum_of_digits_of_an_integer::*;
