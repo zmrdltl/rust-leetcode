@@ -1,7 +1,9 @@
 pub mod numbers;
+pub mod strings;
 pub mod vectors;
 
 pub use numbers::*;
+pub use strings::*;
 pub use vectors::*;
 
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
