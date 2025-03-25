@@ -1,9 +1,11 @@
 pub mod encoding_decoding;
+pub mod iterations;
 pub mod numbers;
 pub mod strings;
 pub mod vectors;
 
 pub use encoding_decoding::*;
+pub use iterations::*;
 pub use numbers::*;
 pub use strings::*;
 pub use vectors::*;
