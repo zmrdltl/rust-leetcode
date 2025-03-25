@@ -6,3 +6,6 @@ pub use decompress_run_length_encoded_list::*;
 
 mod shuffle_string;
 pub use shuffle_string::*;
+
+mod decode_the_message;
+pub use decode_the_message::*;
