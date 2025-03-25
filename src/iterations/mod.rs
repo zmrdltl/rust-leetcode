@@ -9,3 +9,6 @@ pub use create_target_array_in_the_given_order::*;
 
 mod count_of_matches_in_tournament;
 pub use count_of_matches_in_tournament::*;
+
+mod minimum_number_of_moves_to_seat_everyone;
+pub use minimum_number_of_moves_to_seat_everyone::*;
