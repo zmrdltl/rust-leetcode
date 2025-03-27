@@ -17,6 +17,10 @@
 /// Returns an error if `rule_key` is not "type", "color", or "name".
 /// Returns an error if any item doesn't have enough elements (at least 3).
 ///
+/// # Panics
+///
+/// This function will not panic under normal circumstances as all index accesses are checked.
+/// The `expect()` call inside the filter function is safe because we verify all items have sufficient length before processing.
 ///
 /// # Examples
 ///
@@ -52,7 +56,12 @@ pub fn count_matches(
 
     Ok(items
         .iter()
-        .filter(|item| item[rule_key_index] == rule_value)
+        .filter(|item| {
+            *item
+                .get(rule_key_index)
+                .expect("Safe: we already checked all items have sufficient length above")
+                == rule_value
+        })
         .count())
 }
 
