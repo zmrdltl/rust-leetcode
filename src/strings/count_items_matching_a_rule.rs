@@ -52,7 +52,10 @@ pub fn count_matches(
 
     Ok(items
         .iter()
-        .filter(|item| item[rule_key_index] == rule_value)
+        .filter(|item| {
+            item.get(rule_key_index)
+                .is_some_and(|&val| val == rule_value)
+        })
         .count())
 }
 
