@@ -17,6 +17,14 @@ use std::iter::repeat;
 /// - Length of `nums` is odd
 /// - Elements of `nums` is not between 1 and 100 for all `i % 2 == 0`
 ///
+/// # Panics
+///
+/// This function uses `expect()` in the implementation which normally can cause a panic.
+/// However, it is safe here because:
+/// - We validate that `nums.len()` is even and >= 2 before processing
+/// - The `chunks(2)` method guarantees each chunk has exactly 2 elements
+/// - Therefore, `first()` and `last()` will always return `Some(&usize)`
+///
 /// # Examples
 ///
 /// ```
@@ -37,7 +45,15 @@ pub fn decompress_rl_elist(nums: &[usize]) -> Result<Vec<usize>, &'static str> {
 
     Ok(nums
         .chunks(2)
-        .flat_map(|chunk| repeat(chunk[1]).take(chunk[0]))
+        .flat_map(|chunk| {
+            let freq = *chunk
+                .first()
+                .expect("Safe: Array length is validated to be at least 2 and even");
+            let val = *chunk
+                .last()
+                .expect("Safe: Array length is validated to be at least 2 and even");
+            repeat(val).take(freq)
+        })
         .collect())
 }
 

@@ -15,6 +15,10 @@ use std::collections::HashMap;
 ///
 /// Returns an error if the key is not valid.
 ///
+/// # Panics
+///
+/// This function will not panic under normal circumstances as all index accesses are checked.
+///
 /// # Examples
 ///
 /// ```
@@ -51,7 +55,12 @@ pub fn decode_message(key: &str, message: &str) -> Result<String, &'static str> 
     let mut index = 0;
     for c in key.chars().filter(|&c| c != ' ') {
         if index < alphabet.len() && !key_chars_map.contains_key(&c) {
-            key_chars_map.insert(c, alphabet[index]);
+            key_chars_map.insert(
+                c,
+                *alphabet
+                    .get(index)
+                    .expect("Safe: index < alphabet.len() is checked above"),
+            );
             index += 1;
         }
     }
